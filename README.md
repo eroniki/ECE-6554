@@ -6,5 +6,7 @@ Class Webpage: https://filebox.ece.vt.edu/~S16ECE6554/
 Professor: [Professor Devi Parikh](https://filebox.ece.vt.edu/~parikh/)
 
 ---
-1. Week-2 (1/26): *Local features-based image descriptions*:
+**Week-2 (1/26):** *Local features-based image descriptions:*
 Fisher Kernels on Visual Vocabularies for Image Categorization [Florent and Dance, 2007] [PDF](Florent and Dance 2007.pdf)
+
+---
