@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{indentfirst}
+
+\begin{document}
+% \thispagestyle{empty}
+% %%% Summary
+% \begin{flushright}
+% 	\small{Murat Ambarkutuk \{murata@vt.edu\}, 03/15/2016}
+% \end{flushright}
+% \section{Names and Faces in the News}
+% In their paper, the authors propose a method to localize objects in images by leveraging keyword lists corresponding to images.
+% % In their paper~\cite{hwang2012reading}, the authors propose a method to localize objects in images by leveraging keyword lists corresponding to images.
+% The most significant contribution of the paper is a learning model infering positions and scales of objects given the tags corresponding to the image.
+% The general idea of the contribution is to capture the implicit reasons why specific words are choosen in the specific order by the annotater.
+% % The authors noted that the proposed algorithm performs better than state-of-the-art methods, while demystifying the visual perception process.
+% %%% Approach
+% %% Describe the approach taken
+% %% Emphasize the contributions
+% \section{Approach}
+% \indent The authors assert that given an image with corresponding keywords, the order of the keywords captures implicit properties of the image.
+% As we discussed in the last paper, visual attention provides strong information if it is used in detection-recognition related problems.
+% Along with that, the main-subject of the scene is usually centered at the image plane.
+% Thus, combined with the photographer choice of composing the scene, the tendency of humans of which where to look first a strong implicit variable forming the order of the keyword list.
+% The proposed method exploits this important source of information to predict the objects' position and scale in the image.
+% The paper can be summarized in 3 steps.
+% The first step is to analyze the keywords, in particular word presence in the list, the order and mutual tag proximity, to extract spatial constraints of the objects.
+% The second step is then to model the localization distributions given the extracted features.
+% Each category, given the features, the position of the object and the scale is modeled with a Gaussian mixture.
+% The computation of the mixture parameters is computed by a Mixture Density Network, which is a neural network trained over tag-features and the target parameters (the scaling and the position).
+% The last step is to either incorporate visual cues with the information obtained from keyword-lists about the categories, or rank object detector algorithms.
+% As for the object detection, two window based detectors, DPM and HOG, are used.
+% % The authors proposed two scenarios in which the porposed method can be utilized.
+% % The first,
+% %%% Results
+% %% Explaint experimental setup
+% %% Underline the results
+% \section{Conclusions}
+% The innovation that the paper brings, using loosely compiled keywords in object localization, is significant.
+% % Leveraging such a weak bit information in object localization problems would never seem possible. for
+% The proposed method performs significantly better than sliding window based detectors, if a portion of candidate windows are used in both LabelMe and PASCAL VOC datasets.
+% On the other hand, one weakness should be mentioned that the proposed method seems to suffer if the dataset contains similar scenes, meaning that it seems difficult for the method to infer the position and the scales of objects if the dataset shows the same co-occurence distribution.
+% It may result from the fact that it leverages the different object co-occurence distribution in the keyword-list to infer the scales and the positions, hence the scene.
+% Overall, a generic way of modelling visual perception is achieved without even analyzing the perception process; rather human input was used to model this phenomena.
+% It was reassuring after last discussion regarding visual attention and saliency.
+%
+% % Given the authors' superior results compared to previous approaches, the paper bridges the gap in our understanding in visual perception and cognition.
+% % It also makes sense to to use low-, mid-, and high-level features to model the approach.
+% % The data acquisition process is described in detail, which I, personally, find very enlightning.
+% % As a graduate student starting my career in academia, the data acquisition process has given me intuitions on how I should conduct experiments and report results.
+% % However, using a heavily biased dataset which can be accurately modeled with a Gaussian function centered at the image center does not seem reasonable for the given task.
+% % It is expected to see objects of interest at the center area of images and the authors have no control on that.
+% % However, as is mentioned in the paper, the testees can be seated at an angle to the screen. This, I suspect, would reduce the bias.
+% % Another point I would like to discuss is that the proposed method takes advantage of fixation points to obtain samples.
+% % However, I believe that this is not an accurate representation of the way humans look at their environments by scanning the points.
+% % Instead, the way we percieve the environment is to understand the whole scene by looking at the patches.
+% % For example, as we read the lines of books and papers, we tend to see at word-level, or in some cases full sentences.
+% % To the best of my understanding, this paper uses features capturing mostly local information.
+% % Thus, it would be a better approach if they would account for that.
+% % One thing that can be done to model this is to use soft voting as they capture the data set.
+% % As we discussed in earlier session of the class, the paper complements the story that the authors provided earlier.
+% % However, given the amazing performance of the deep neural networks based approaches, the effort da-da-da
+% % \bibliographystyle{unsrt}
+% % \bibliography{bibliography}
+\end{document}

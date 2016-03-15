@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{indentfirst}
+
+\begin{document}
+\thispagestyle{empty}
+%%% Summary
+\begin{flushright}
+	\small{Murat Ambarkutuk \{murata@vt.edu\}, 03/01/2016}
+\end{flushright}
+\section{Learning to Predict Where Humans Look}
+In their paper, the authors propose a method to create saliency maps for given images in order to predict where humans would look in the images.
+The contributions of the paper are an experimental dataset and a method using different features to model visual fixation by viewers of images.
+The authors noted that the proposed algorithm performs better than state-of-the-art methods, while demystifying the visual perception process.
+%%% Approach
+%% Describe the approach taken
+%% Emphasize the contributions
+\section{Approach}
+\indent The proposed approach takes advantage of the dataset provided with it.
+The dataset was obtained from 15 testee's gaze information, in particular the parts of the images they look at as they view images for three seconds (per image).
+Between two images, the authors reported that a gray scene was displayed for one second to (roughly speaking) reset the point upon which the testee's eyes are fixated.
+The testees were also told that it was a form of memory test in order to insentivize attention.
+Personally, if I was told the same thing, I would find three seconds too short a time window for a memory test.
+I will discuss more about the dataset and the data acquisition process in the following section. \\
+\indent To train a linear SVM, three levels of features were extracted.
+Intensity, color contrast, local energy and similar information constituted low-level features.
+A horizon detector is used to capture the place where the objects rest (constituting a mid-level features).
+Finally, a Viola-Jones face detector and DPM are used to capture higher level features.
+Given the features and the samples acquired from the saliency maps, a linear SVM is trained to predict where a human would look.
+
+
+%  contains two steps iteratively employed to recover the spatial properties of a room image.
+% The first step of the algorithm is to parameterize the room being investigated with a 3-D box.
+% In order to model the room with a 3-D box, line segments are extracted, and the segments are then employed to estimate the vanishing points.
+% After the line segment detection step, all of the candidate vanishing points are chosen from the intersection points of the lines.
+% % To reduce the computational load of solving for all intersection points, the line segments thresholded to 30 pixel in length.
+% (I believe it would be a more coherent read for me if the authors provided the framework they used for the line segment extraction.)
+% The candidate vanishing points are then evaluated based on a Hough-like vote-based system in which, for each line segment the middle point, length and the angle between the middle point of the line segment are used in the voting function.
+% % The search space is handled by greedy search and
+% The vanishing points not only provide the orientation of the box fit to the room, but they also set hard constraints for the geometry of the room which finalize the parameterization step.
+% The authors also provide a learning framework which outputs confidence levels for the box layouts which are fit for the room.
+% The second major step in the paper is to estimate the surface labels which are based on the acquired box layout.
+% In order to label the surfaces, the image is oversegmented to extract superpixels.
+% A boosted decision tree classifier is used to get la ikelihood score for each pixel based on the visual cues, namely color, texture and edges, and the vanishing points.
+% For each superpixel, the pixel-level likelihood scores are integrated to acquire the label confidence scores.
+% An interesting idea is to use the surface labels as a feedback for new 3-D box estimations to increase the accuracy.
+% The authors claim that using these two major steps, box parameterization of the room and surface label estimation, in a recursive fashion makes the algorithm robust to clutter.
+%%% Results
+%% Explaint experimental setup
+%% Underline the results
+\section{Impressions}
+Given the authors' superior results compared to previous approaches, the paper bridges the gap in our understanding in visual perception and cognition.
+It also makes sense to to use low-, mid-, and high-level features to model the approach.
+The data acquisition process is described in detail, which I, personally, find very enlightning.
+As a graduate student starting my career in academia, the data acquisition process has given me intuitions on how I should conduct experiments and report results.
+However, using a heavily biased dataset which can be accurately modeled with a Gaussian function centered at the image center does not seem reasonable for the given task.
+It is expected to see objects of interest at the center area of images and the authors have no control on that.
+However, as is mentioned in the paper, the testees can be seated at an angle to the screen. This, I suspect, would reduce the bias.
+Another point I would like to discuss is that the proposed method takes advantage of fixation points to obtain samples.
+However, I believe that this is not an accurate representation of the way humans look at their environments by scanning the points.
+Instead, the way we percieve the environment is to understand the whole scene by looking at the patches.
+For example, as we read the lines of books and papers, we tend to see at word-level, or in some cases full sentences.
+To the best of my understanding, this paper uses features capturing mostly local information.
+Thus, it would be a better approach if they would account for that.
+One thing that can be done to model this is to use soft voting as they capture the data set.
+% As we discussed in earlier session of the class, the paper complements the story that the authors provided earlier.
+% However, given the amazing performance of the deep neural networks based approaches, the effort da-da-da
+% \bibliographystyle{unsrt}
+% \bibliography{bibliography}
+\end{document}

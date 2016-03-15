@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+% \usepackage{indentfirst}
+
+\begin{document}
+\thispagestyle{empty}
+%%% Summary
+\section*{Review: Object-Graphs for Context-Aware Category Discovery}
+\begin{flushright}
+	\small{Murat Ambarkutuk \{murata@vt.edu\}, 02/16/2016}
+\end{flushright}
+Image categorization is the effort of classifying a set of images according to objects they contain and the context the objects collectively form.
+In their paper~\cite{lee2012object}, the authors mention that unsupervised category learning has some superior aspects then supervised approaches, such as the bias occuring from the labels and the annotation of the datasets with which the algorithms are being trained and the amount of work that is needed to compile the mentioned annotations.
+The authors, on the other hand, underline that unsupervised approaches benefit from appereance only cues to distinguish one class from another.
+Given mentioned superiorities, an extension to unsupervised technique was proposed.
+The contribution is based on the object-graph descriptor in which not only the visual cues are utilized, but spatial configuration and co-occurance frequency of the objects were also exploited.\@ \\
+%%% Approach
+%% Describe the approach taken
+%% Emphasize the contributions
+\indent The approach contains three major steps revolving around the proposed descriptor and outputs newly-discovered objects according the context of the objects found in unsupervised approaches. %% TODO.
+The first step is to create a pool of segments from each image with varying arguments, from which known objects, unknown objects and mixture of both cases are classified with corresponding confidence scores.
+The authors note that the confidence score will display higher certainity in the case of known and unknown objects, lower in mixture of both, assuming reliable classifiers.
+The certainity cue is measured with Shannon Entropy and a cutoff threshold is set according to the certainity measure.
+The objects which have smaller entropy than the threshold are considered as the unknown objects.
+Distinguishing the known regions from unknown regions by using the entropy threshold forms the first contrubition of the paper.
+This approach reminded me Dempster-Shafer theory in which ``ignorance'' on some knowledge can be inherently modeled.
+The second step in the algorithm which is the second contribution of the paper is a means of exploiting the known-unknown object distrubtion, both spatial-wise and frequency-wise.
+To be able to leverage the information unknown objects provided, a histogram of object classes is constructed for each unknown objects, within a varying spatial distance given two orientations, above and below.
+This object-graph model is the second contribution of the paper, which is an intuitive way of formulating a solution the authors mentioned in the first section.
+Albeit intricate and elaborate, the one-sentence explanation given in Section 3.2 of~\cite{lee2012object} is the best measure how good the contribution formulated and presented.
+The last step of the algorithm is to discover categories from the familiar objects.
+In this step, the authors use a combined similarity measure with which both appearence and co-occurence histograms are taken into account.\\
+%%% Results
+%% Explaint experimental setup
+%% Underline the results
+\indent The proposed method was compherensively tested with four different datasets under different settings.
+% To evaluate of the overall performance of the ``purity'' and ``mAP'' are used as metrics.
+The authors claim that the proposed approach outperforms the baseline algorithm.
+Given the results in the paper, the proposed method in fact performs significantly better than the baseline.
+Although it is a new way of approaching the problem of object discovery which limits the scope of comparison, it would be a easier to compherend the significance of the contributions if the results were compared to, at least, similar techniques targeting the same problem.
+It is 
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+\end{document}
