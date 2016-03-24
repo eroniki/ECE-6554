@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\renewcommand{\baselinestretch}{0.95}
+\begin{document}
+\thispagestyle{empty}
+%%% Summary
+\begin{flushright}
+	\small{Murat Ambarkutuk \{murata@vt.edu\}, 03/24/2016}
+\end{flushright}
+\section*{Learning To Detect Unseen Object Classes by Between-Class Attribute Transfer}
+The problem that the authors are tackling is that of detection in a framework in which the training data and test data are disjoint.
+In other words, the paper formulates an object detection method which can handle unseen object classes.
+% In other words, the paper formulates a method which enables learning algorithms to have disjoint training and test set.
+
+% The authors denote that the conventional representation of datasets impedes learning algorithms from discovering new categories during test time.
+The authors note that it is not feasible to solve such problems with the conventional learning paradigm.
+Thus, it is required to have a new approach to abstract the data (possibly, semantically higher level than the conventional representation).
+The authors suggest the use of attributes to handle disjoint training sets and test sets.
+The major difference of using the attributes is to decouple these sets.
+% The paper proposes using attributes as a higher level representation for the images, which is shared between classes.
+The attributes may be the shape, color or even the geographical information of the object, which are semantically more meaningful than raw features extracted from the images.
+Furthermore, it is crucial to note that the proposed method enforces that the attributes are shared among classes.
+One example of different attributes provided in the paper is the descriptions of the bee, tiger and zebra classes.
+While three example categories share the attribute stripe, the color information captures the differences among the classes.
+In order to use attributes in classification tasks, the paper proposes two different approaches using attributes as the major component in their classification scheme.
+
+The first approach is Direct Attribute Prediction (DAP) which uses attributes as a decoupling layer between the images and the labels.
+During training, each output class layer invokes a labeling in the attribute layer.
+The authors note that any supervised learning scheme can be employed with the proposed method.
+Moreover, the attribute values are used to infer the class label at test time.
+
+Indirect Attribute Prediction (IAP), the second proposed approach, essentially employs a similar process.
+The main difference of the IAP approach is that the attributes layer connects classes which are known at training time and not.
+The learning scheme is the conventional multi-class classification.
+
+\section*{Results and Conclusions}
+%%% Results
+%% Explaint experimental setup
+%% Underline the results
+The IAP and DAP approaches are evaluated seperately with a novel dataset tailored for the task.
+A non-linear SVM and multi-class logistic regression was trained for DAP and IAP, respectively.
+
+One measure used for evaluation purposes was the mean of the diagonal of the confusion matrix.
+40.5\% and 27.8\% multi-clas accuracy scores were obtained with the mentioned measure for DAP and IAP, respectively.
+% The confussion matrix in the figure-4 depicts that DAP is more accurate, while IAP is more precise.
+This measure implies that DAP is more accurate than IAP in multi-class classification tasks.
+In other words, in overall performance comparison, DAP successfully identifies more classes.
+However, IAP shows significantly higher confidence scores at classes it infers correctly.
+One extension that could be made for the paper would be using both approaches simulatenously and fusing the outputs of the approaches.
+By doing this, the expected result of this extension would be an increase in both accuracy and precision of the proposed method.
+
+To compare the proposed method with one of the avaiable methods, the authors implemented a one-shot learning scheme along with a nearest-neighbor classification method and a multi-class classification method.
+% The one-shot algorithm performed relatively weaker than the proposed method if the training
+The one-shot learning algorithm showed accuracy of 14.3\% and 18.9\% with 1 and 10 training images.
+The authors commented that these results prove how hard the problem of interest is.
+Furthermore, the multi-class classification method performed with an accuracy of 65\%; however it requires more data than the proposed method to achieve this level of accuracy.
+As a conclusion, the attribute-based learning scheme has the potential to perform in cases where no or lack training data available.
+% \bibliographystyle{unsrt}
+% \bibliography{bibliography}
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\renewcommand{\baselinestretch}{1.05}
+\begin{document}
+\thispagestyle{empty}
+%%% Summary
+\begin{flushright}
+	\small{Murat Ambarkutuk \{murata@vt.edu\}, 03/21/2016}
+\end{flushright}
+\section{Efficient Object Category Recognition Using Classemes}
+In their paper, the authors mention that the difficulty of the recognition tasks with the state-of-the-art methods is to scale up as the size of the data of concern increases.
+The authors also assert that in order to scale up recognition tasks, the recognition system should have three main aspects: flexibility in working with novel categories, compact descriptors and simple classifiers.
+ % propose a object recognition method in which the main consideration is to scale up traditional recognition tasks.
+The paper proposes a compact and higher-level feature descriptor which complies with the three aspects, while competing with the state-of-the-art methods in accuracy.
+
+In the conventional object recognition systems are consisted of two main steps.
+The first, training, is the one in which low-level features are extracted and learned.
+During the test time, the feature vector, which is extracted from the test image with the same feature extraction method, is compared to all categories' feature vectors and the inference is made.
+The proposed method, on the other hand, does not rely on the low-level feature to the same extent.
+The low-level features are used to create semantic labels which are called as ``classemes'', higher level representation of the images; but not directly used in the recognition task.
+After creating the classemes, they are then processed to reduce the dimensionality and quantize the classemes.
+This step is essential in the system due to the speed and memory requirements that scaling the system brings about.
+
+\section{Results and Conclusions}
+%%% Results
+%% Explaint experimental setup
+%% Underline the results
+The performance of the algorithm is assesed with two different experimentation setup.
+While the first experimentation benchmarked classemes with the existing methods, the second one evaluates classemes in retrieval tasks.
+
+In the first experimentation, the proposed method was compared with existing methods to evaluate the accuracy of the contribution under the same training and test phase.
+In details, the top part of the figure-2 suggests that classeme based methods can keep up with the state of the art recognition methods in accuracy while representing the data of concern at least with one fifth what other methods use.
+As it can be observed in the bottom part of figure 2, almost all of the classifiers perform the same accuracy level if the images are described with classemes rather than low-level features.
+Moreover, although more explanation is needed for figure-3 (showing the compactness versus accuracy), the proposed method needs more data to achieve some accuracy.
+This figure essentially shows the trade-off between memory and speed with accuracy.
+
+The second experimentation evaluates classmes' perfomance in retrieval tasks.
+In this experimentation, the proposed method is compared with Bag-of-Words (BOW) representation which relies on the low-level features at greater extent.
+As it can be observed in the bottom part of figure 4, the proposed method perfoms better than BoW-based algorithms, while using higher level features then BoW.
+
+In bigger picture, the classemes can achieve state-of-the-art accuracy level while complying to the three properties that the authors suggest for sophisticated recognition systems.
+For instance, table-1 shows the flexibility of classemes when a new category is discovered.
+Since the classemes are computed with weakly trained simple classifiers and they are processed to weaken the richness of the representation, the run-time speed is significantly increased while having about the same accuracy level with the existing methods.
+% The classemes are also processed to weaken the richness of representation, in return it is expected to see faster run time performance and light-weight (data-wise) representation.
+
+
+% \bibliographystyle{unsrt}
+% \bibliography{bibliography}
+\end{document}
