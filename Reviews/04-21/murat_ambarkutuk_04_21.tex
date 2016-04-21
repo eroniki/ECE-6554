@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\renewcommand{\baselinestretch}{1}
+\begin{document}
+\thispagestyle{empty}
+%%% Summary
+\begin{flushright}
+	\small{Murat Ambarkutuk \{murata@vt.edu\}, 04/21/2016}
+\end{flushright}
+\section*{Photo Tourism: Exploring Photo Collections in 3D}
+In their paper, the authors propose a computer vision algorithm in which pictures of famous places are processed to create a photo tourism application.
+The system uses images collected from the Internet and processed in a way to account for being noisy in information.
+The spectrum of the images, the authors mention, is greatly varied in terms of illumination, season, weather condition and similar challenges that computer vision algorithm needs to account for.
+Overall, the system is capable of visualizing famous scenes in 3D, object-based tourism (it is important for tourism applications; some objects are more important than their vicinity), understanding where the photographer was when the picture was taken and distinguish what is being photographed.
+
+% \section*{Method}
+% The system is consisted of a great number of computer vision algorithms to tackle the problem.
+% SIFT features are first extracted and they are then matched for pairs of images by using RANSAC\@.
+% This matching procedure allows system to approximate the fundamental matrix for the pairs of images.
+% After finding a set of geometrically consistent matches for pairs of images, tracks are extracted.
+% The tracks are connected keypoints among multiple images.
+% Then DLT algorithm was used to recover the 3D position of each trrack and a set of camera parameters.
+
+
+\section*{Results}
+%%% Results
+%% Explaint experimental setup
+%% Underline the results
+The authors provided a great detail about the set of computer vision algorithms has been utilizied for the system, while providing some details about the experimentation.
+The system was evaluated with two different data sets, controlled and uncontrolled the authors refer.
+In the controlled experimentation, the system was tested with two datasets collected in two different cities under controlled settings such as single camera-lens with single photographer.
+As for the uncontrolled experimentation, the authors used images collected from the Internet.
+The authors claim, the average reprojection error was about 1.5 pixels.
+
+\section*{Conclusions}
+% Because the compherensive analysis of the system is not feasible to fit into a page, I would like present my remarks regarding some sections of the proposed system.
+
+The authors imply that the structure from motion technique utilized in the proposes system was the slowest part of the pipeline.
+Even though, the paper published 10 years ago and the amount of data being handled is vast (more than 2500 images), the authors noted that it took two weeks for system to utilize Structure from Motion, which sounds far too slower than rest of components of the system.
+A quick search resulted that some cameras released in 2008 were referred as early geotagging cameras, I believe a similar system can rely on EXIF data more than the authors could.
+One extention could be made in regards to that point is to incorporate the output of the structure from motion and geo-registration algorithm with the EXIF data in a Bayesian Framework.   
+
+% Another point is that the scope of the paper leans towards the field of SLAM\@.
+% In SLAM applications, bundle (global) adjustments are employed in lower frequency then the local adjustments.
+% I have a strong suspicion that a similar approach would be employed in the Structure from Motion algorithm to speed it up, with a good guess provided by EXIF metadata.
+
+
+The novelty of the proposed system is an end-to-end computer vision system capable of providing photo tourism experience.
+The video provided by the authors was impressive, and I am glad to see the website forming the user interface is still alive.
+Moreover, it is historically important to see when computer vision applications started affecting human life in more tangible ways than being part research topics in labs.
+However, a point that I should mention is that it would be better if more parametric study was provided.
+It would be more clear if
+The system heavily depends on the theoretical of computer vision field and only evaluation metric provided was the reprojection error.
+Even that metric was averaged out, was not compared after two different experimentation done.
+
+% \bibliographystyle{unsrt}
+% \bibliography{bibliography}
+\end{document}
